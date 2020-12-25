@@ -310,6 +310,7 @@
   .modal-header img {
     width: 7%;
     height: 2%;
+  }
 }
 @media all and (max-width: 480px) and (min-width: 0px) {
   .content-player-pick {
@@ -418,7 +419,7 @@
   .modal-header img {
     width: 7%;
     height: 5%;
-}
+  }
 }
 
 @media all and (max-width: 375px) and (min-width: 0px) {
