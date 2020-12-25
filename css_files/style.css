@@ -1,0 +1,655 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&display=swap");
+:root {
+  --background-color-one: hsl(214, 47%, 23%);
+  --background-color-two: hsl(237, 49%, 15%);
+  --scissor-color-one: hsl(39, 89%, 49%);
+  --scissor-color-two: hsl(40, 84%, 53%);
+  --paper-color-one: hsl(230, 89%, 62%);
+  --paper-color-two: hsl(230, 89%, 65%);
+  --rock-color-one: hsl(349, 71%, 52%);
+  --rock-color-two: hsl(349, 70%, 56%);
+  --lizard-color-one: hsl(261, 73%, 60%);
+  --lizard-color-two: hsl(261, 72%, 63%);
+  --cyan-color-one: hsl(189, 59%, 53%);
+  --cyan-color-two: hsl(189, 58%, 57%);
+
+  --dark-text: hsl(229, 25%, 31%);
+  --score-text: hsl(229, 64%, 46%);
+  --header-outline: hsl(217, 16%, 45%);
+}
+
+/*---- Reset ----*/
+* {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  vertical-align: baseline;
+}
+
+body {
+  display: inline-block;
+
+  width: 100%;
+  min-height: 100vh;
+
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/*------------- Styling part -----------------*/
+body {
+  background-image: radial-gradient(
+    circle,
+    var(--background-color-one),
+    var(--background-color-two)
+  );
+  font-family: "Barlow Semi Condensed", sans-serif;
+  min-height: 100vh;
+
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container audio {
+  display: none;
+}
+
+.container {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  min-height: 100vh;
+  max-width: 1366px;
+
+  margin: 0 auto;
+  position: relative;
+}
+
+header {
+  width: 45%;
+  height: auto;
+
+  margin: 2.5rem auto;
+
+  padding: 0.9rem 1rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  border: 2.5px solid var(--header-outline);
+  border-radius: 0.9rem;
+}
+
+.logo-container {
+  width: 30%;
+  height: auto;
+  display: flex;
+  padding: 0.5rem 0;
+}
+
+.logo-container img {
+  max-width: 90%;
+}
+.score-container {
+  background-color: #ffffff;
+  width: 25%;
+  height: auto;
+
+  border: 1.4px solid var(--dark-text);
+  border-radius: 0.5rem;
+
+  padding: 0.5rem 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score-container h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--score-text);
+}
+
+.score {
+  font-size: 3rem;
+
+  color: var(--dark-text);
+  font-weight: 700;
+}
+
+.score.animate {
+  animation: scale 0.5s linear;
+}
+
+/*---- Playing content ----*/
+
+.content-picking {
+  width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+  pointer-events: all;
+  position: relative;
+}
+
+.content-picking.disable {
+  pointer-events: none;
+}
+
+.triangle {
+  margin: 60px auto 0;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: auto;
+  background-image: url(../images/bg-triangle.svg);
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: scale 0.5s linear;
+}
+
+.triangle.disable {
+  display: none;
+}
+
+/*---- Buttons ----*/
+.row {
+  width: 360px;
+  margin: 0 auto;
+
+  position: relative;
+  top: 5%;
+  transform: translateY(-5%);
+}
+
+.button-circle-1 {
+  width: 240px;
+  height: 240px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.triangle .button-circle-1 {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.button-circle-2 {
+  width: 76%;
+  height: 75%;
+  background-color: rgb(235, 235, 235);
+  border-radius: 50%;
+  box-shadow: inset 0px 8px 1px 0px #b8bcd7;
+}
+
+.triangle .button-circle-2 {
+  box-shadow: inset 0px 5px 1px 0px #b8bcd7;
+}
+
+/*---- Paper button ----*/
+.blue {
+  float: left;
+  background-image: radial-gradient(
+    var(--paper-color-one),
+    var(--paper-color-two)
+  );
+  box-shadow: inset 0px -8px 1px 0px #2b43c1;
+}
+
+.triangle .blue {
+  box-shadow: inset 0px -6px 1px 0px #2b43c1;
+}
+
+.triangle .paper::after,
+.content-picking .paper::after {
+  position: absolute;
+  content: "";
+
+  width: 75px;
+  height: 90px;
+
+  background-image: url(../images/icon-paper.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.triangle .paper::after {
+  width: 49px;
+  height: 59px;
+}
+/*---- Scissor button ----*/
+.yellow {
+  float: right;
+  background-image: radial-gradient(
+    var(--scissor-color-one),
+    var(--scissor-color-two)
+  );
+  box-shadow: inset 0px -8px 1px 0px #c66c1b;
+}
+
+.triangle .yellow {
+  box-shadow: inset 0px -6px 1px 0px #c66c1b;
+}
+.scissor::after {
+  position: absolute;
+  content: "";
+  width: 79px;
+  height: 90px;
+
+  background-image: url(../images/icon-scissors.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.triangle .scissor::after {
+  width: 51px;
+  height: 58px;
+}
+/*---- Rock button ----*/
+.red {
+  background-image: radial-gradient(
+    var(--rock-color-one),
+    var(--rock-color-two)
+  );
+  box-shadow: inset 0px -8px 1px 0px #9a1833;
+}
+
+.triangle .red {
+  left: 50%;
+  bottom: -5%;
+  transform: translate(-50%, 5%);
+  box-shadow: inset 0px -6px 1px 0px #9a1833;
+}
+.rock::after {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 80px;
+
+  background-image: url(../images/icon-rock.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.triangle .rock::after {
+  width: 48px;
+  height: 48px;
+}
+/*---- Rules button ----*/
+.rules {
+  display: block;
+  width: 105px;
+  height: 37px;
+
+  border: 2px solid var(--header-outline);
+  border-radius: 0.5rem;
+
+  font-family: "Barlow Semi Condensed", sans-serif;
+  text-transform: uppercase;
+  background-color: transparent;
+  font-weight: 600;
+  color: #cccccc;
+
+  position: sticky;
+  top: 90vh;
+  float: right;
+  margin-right: 40px;
+
+  cursor: pointer;
+}
+
+.rules:hover {
+  color: #8a8a8a;
+  border-color: #cccccc;
+}
+
+/*----- Game clicks animations ----*/
+
+/*---- Rock click ----*/
+.triangle .red:hover {
+  box-shadow: inset 0px -4px 1px 0px #9a1833;
+
+  bottom: -6.5%;
+  transform: translate(-50%, 6.5%);
+}
+
+.triangle .red:active {
+  box-shadow: inset 0px 0px 1px 0px #9a1833;
+
+  bottom: -8%;
+  transform: translate(-50%, 8%);
+}
+.triangle .red:hover .button-circle-2,
+.triangle .blue:hover .button-circle-2,
+.triangle .yellow:hover .button-circle-2 {
+  box-shadow: inset 0px 3px 1px 0px #b8bcd7;
+  position: relative;
+  top: 1%;
+}
+.triangle .red:active .button-circle-2,
+.triangle .blue:active .button-circle-2,
+.triangle .yellow:active .button-circle-2 {
+  box-shadow: inset 0px 0px 1px 0px #b8bcd7;
+  position: relative;
+  top: 2%;
+}
+
+/*--- Scissor click and some of the paper one ----*/
+.triangle .yellow:hover,
+.triangle .blue:hover {
+  box-shadow: inset 0px -4px 1px 0px #c66c1b;
+  bottom: -2%;
+  transform: translateY(2%);
+}
+
+.triangle .yellow:active,
+.triangle .blue:active {
+  box-shadow: inset 0px 0px 1px 0px #c66c1b;
+  bottom: -4%;
+  transform: translateY(4%);
+}
+
+/*---- Paper click continuation ----*/
+.triangle .blue:hover {
+  box-shadow: inset 0px -4px 1px 0px #2b43c1;
+}
+
+.triangle .blue:active {
+  box-shadow: inset 0px 0px 1px 0px #2b43c1;
+}
+
+/*---- Player pick -----*/
+.content-player-pick {
+  width: 60%;
+  height: auto;
+
+  margin: 0 auto;
+  display: none;
+  margin-top: 4rem;
+  pointer-events: none;
+  z-index: 99;
+}
+
+.content-player-pick.enable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: all;
+}
+.content-player-pick .col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 320px;
+}
+
+.content-player-pick .col h1 {
+  text-align: center;
+  text-transform: uppercase;
+
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  word-spacing: 3.5px;
+  font-weight: 600;
+  color: #f6f7f7;
+  margin-bottom: 3rem;
+}
+
+.content-player-pick.end .col > div {
+  animation: rotation 3s ease-in-out;
+}
+
+.col.result {
+  display: none;
+}
+
+.col.result h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2.7rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.col.result .play-again {
+  display: inline-block;
+
+  width: 185px;
+  height: 40px;
+
+  cursor: pointer;
+
+  color: var(--dark-text);
+  font-size: 0.8rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 0.5rem;
+
+  letter-spacing: 2px;
+  word-spacing: 3px;
+}
+.bot-before-pick {
+  width: 182.4px;
+  height: 180px;
+
+  background-color: #17223e;
+
+  border-radius: 50%;
+
+  position: relative;
+  bottom: 10%;
+  transform: translateY(14.5%);
+}
+/*----- Displaying the result ----*/
+.content-player-pick.end {
+  width: 70%;
+}
+
+.content-player-pick.end .col {
+  width: 32%;
+}
+
+.content-player-pick.end .col.result {
+  width: 36%;
+  display: flex;
+  transform: scale(1);
+  animation: win-animation 1s;
+  justify-content: center;
+  align-items: center;
+  scale: 1;
+}
+/*---- Modal Part ----*/
+.modal-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  pointer-events: none;
+}
+
+.modal-container.show {
+  display: block;
+  pointer-events: all;
+}
+
+.modal {
+  width: fit-content;
+  padding: 2rem 1.3rem;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal h1 {
+  text-transform: uppercase;
+  color: var(--dark-text);
+  font-size: 1.5rem;
+}
+
+.modal img {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.modal-header {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+.modal-header img {
+  width: 7%;
+  height: 2%;
+  margin: 0;
+  cursor: pointer;
+}
+
+/*----- Circles -----*/
+.circle-1,
+.circle-2,
+.circle-3 {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: #ffffff;
+  opacity: 0;
+}
+
+.circle-1 {
+  width: 600px;
+  height: 600px;
+}
+.circle-2 {
+  width: 470px;
+  height: 470px;
+}
+
+.circle-3 {
+  width: 340px;
+  height: 340px;
+}
+
+/*---- Winning circles animation ----*/
+.button-circle-1.end .circle-3 {
+  animation: scaleIn 1s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+  animation-delay: 0.25s;
+}
+
+.button-circle-1.end .circle-1 {
+  animation: scaleIn 1s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+  animation-delay: 0.25s;
+}
+
+.button-circle-1.end .circle-2 {
+  animation: scaleIn 1s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+  animation-delay: 0.5s;
+}
+
+/*---- Animations ----*/
+@keyframes win-animation {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotation {
+  50% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes winning-circles-effect {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/*---- Score animation ----*/
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

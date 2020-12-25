@@ -1,0 +1,482 @@
+/*---- Small alls - laptops -----*/
+@media all and (max-width: 1024px) and (min-width: 0px) {
+  /*---- Header ---*/
+  header {
+    width: 55%;
+  }
+
+  /*---- Content player pick ----*/
+  .content-player-pick.end {
+    width: 80%;
+  }
+
+  .content-picking :not(.triangle) :not(.row) .button-circle-1 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .bot-before-pick {
+    width: 162.4px;
+    height: 160px;
+  }
+
+  /*---- Icons besides triangle ----*/
+  .content-picking .paper::after {
+    width: 63px;
+    height: 77px;
+  }
+
+  .content-picking .rock::after {
+    width: 63px;
+    height: 63px;
+  }
+
+  .content-picking .scissor::after {
+    width: 63px;
+    height: 70px;
+  }
+
+  /*---- Icons in triangle -----*/
+  .content-picking .triangle .row .scissor::after {
+    width: 48px;
+    height: 55px;
+  }
+
+  .content-picking .triangle .row .paper::after {
+    width: 48px;
+    height: 58px;
+  }
+
+  .triangle .rock::after {
+    width: 48px;
+    height: 48px;
+  }
+
+  .content-player-pick .col h1 {
+    font-size: 1.1rem;
+  }
+
+  /*---- Result display ----*/
+  .content-player-pick.end {
+    width: 80%;
+  }
+
+  .content-player-pick.end .col {
+    width: 37%;
+  }
+
+  /*---- Result -----*/
+
+  .content-player-pick.end .col.result {
+    width: 25%;
+  }
+  .content-player-pick .col.result h1 {
+    font-size: 2.1rem;
+  }
+  .col.result .play-again {
+    width: 155px;
+    height: 38px;
+  }
+
+  /*---- Circles decoration when winning ----*/
+
+  .circle-1 {
+    width: 450px;
+    height: 450px;
+  }
+  .circle-2 {
+    width: 360px;
+    height: 360px;
+  }
+
+  .circle-3 {
+    width: 270px;
+    height: 270px;
+  }
+
+  /*----- modal header -----*/
+  .modal-header {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media all and (max-width: 768px) and (min-width: 0px) {
+  /*---- Header ---*/
+  header {
+    width: 70%;
+  }
+  .score-container h1 {
+    font-size: 1rem;
+  }
+
+  .score {
+    font-size: 2.7rem;
+  }
+
+  /*---- Content player pick ----*/
+  .content-player-pick.end {
+    width: 90%;
+  }
+
+  /*----- Content picking ----*/
+  .content-picking :not(.triangle) :not(.row) .button-circle-1 {
+    width: 160px;
+    height: 160px;
+  }
+
+  .content-picking .paper::after {
+    width: 56px;
+    height: 68px;
+  }
+
+  .content-picking .rock::after {
+    width: 56px;
+    height: 56px;
+  }
+
+  .content-picking .scissor::after {
+    width: 56px;
+    height: 62px;
+  }
+
+  .bot-before-pick {
+    width: 122.4px;
+    height: 120px;
+  }
+
+  .content-player-pick.end .col {
+    width: 50%;
+  }
+  /*---- Result -----*/
+
+  .content-player-pick .col.result h1 {
+    font-size: 1.9rem;
+  }
+  .col.result .play-again {
+    width: 135px;
+    height: 37px;
+  }
+
+  /*---- Icons in triangle -----*/
+  .content-picking .triangle .row .scissor::after {
+    width: 48px;
+    height: 55px;
+  }
+
+  .content-picking .triangle .row .paper::after {
+    width: 48px;
+    height: 58px;
+  }
+
+  .triangle .rock::after {
+    width: 48px;
+    height: 48px;
+  }
+
+  /*---- Circles decoration when winning ----*/
+
+  .circle-1 {
+    width: 400px;
+    height: 400px;
+  }
+  .circle-2 {
+    width: 320px;
+    height: 320px;
+  }
+
+  .circle-3 {
+    width: 220px;
+    height: 220px;
+  }
+
+  /*----- modal Header -----*/
+  .modal-header {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media all and (max-width: 610px) and (min-width: 0px) {
+  /*---- Header ---*/
+  header {
+    width: 80%;
+  }
+
+  .score-container {
+    width: 30%;
+  }
+  .score-container h1 {
+    font-size: 0.8rem;
+  }
+
+  .score {
+    font-size: 2.4rem;
+  }
+  /*---- Rules button -----*/
+  .rules {
+    float: none;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /*---- Content player pick ----*/
+
+  .content-player-pick {
+    width: 100%;
+  }
+
+  .content-player-pick.end {
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+  }
+  .content-player-pick .col {
+    height: 250px;
+    width: 50%;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+
+  .content-player-pick.end .col.result {
+    flex-grow: 0;
+    flex-basis: 50%;
+    order: 3;
+    flex-direction: column;
+    width: 70%;
+  }
+
+  .col.result .play-again {
+    width: 170px;
+    height: 40px;
+  }
+  /*----- Triangle ----*/
+
+  .triangle {
+    background-size: 55%;
+    position: absolute;
+    height: 230px;
+    left: 50%;
+    top: 50%;
+    animation: scale-small 0.5s linear;
+    transform: translate(-50%, -25%);
+  }
+
+  .triangle .button-circle-1 {
+    width: 110px;
+    height: 110px;
+  }
+
+  .row {
+    width: 300px;
+  }
+
+  /*---- Icons in triangle -----*/
+  .content-picking .triangle .row .scissor::after {
+    width: 35px;
+    height: 38.5px;
+  }
+
+  .content-picking .triangle .row .paper::after {
+    width: 35px;
+    height: 41px;
+  }
+
+  .triangle .rock::after {
+    width: 35px;
+    height: 35px;
+  }
+
+  /*---- Score animation ----*/
+  @keyframes scale-small {
+    0% {
+      transform: translate(-50%, -25%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -25%) scale(1.2);
+    }
+    100% {
+      transform: translate(-50%, -25%) scale(1);
+    }
+  }
+  .modal-header img {
+    width: 7%;
+    height: 2%;
+}
+@media all and (max-width: 480px) and (min-width: 0px) {
+  .content-player-pick {
+    width: 95%;
+  }
+
+  /*---- Content picking ----*/
+  .content-picking {
+    position: relative;
+  }
+
+  /*---- Content player pick ----*/
+
+  .content-player-pick .col h1 {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .content-picking .button-circle-1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  /*---- Icons besides triangle ----*/
+  .content-picking .paper::after {
+    width: 49px;
+    height: 60px;
+  }
+
+  .content-picking .rock::after {
+    width: 49px;
+    height: 49px;
+  }
+
+  .content-picking .scissor::after {
+    width: 49px;
+    height: 54px;
+  }
+
+  /*---- Triangle ----*/
+
+  .triangle {
+    height: 260px;
+  }
+
+  .triangle .button-circle-1 {
+    width: 110px;
+    height: 110px;
+  }
+
+  .row {
+    width: 300px;
+  }
+
+  .triangle .rock::after {
+    width: 35px;
+    height: 35px;
+  }
+
+  /*---- Circles decoration when winning ----*/
+
+  .circle-1 {
+    width: 350px;
+    height: 350px;
+  }
+  .circle-2 {
+    width: 270px;
+    height: 270px;
+  }
+
+  .circle-3 {
+    width: 200px;
+    height: 200px;
+  }
+
+  /*---- Modal ----*/
+  .modal {
+    width: 100%;
+    height: 100vh;
+    padding: 2rem 1.3rem;
+    border-radius: 0;
+  }
+
+  .modal-header {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 80vh;
+
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal img:not(.rules-close) {
+    width: 80%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .modal-header img {
+    width: 7%;
+    height: 5%;
+}
+}
+
+@media all and (max-width: 375px) and (min-width: 0px) {
+  /*---- Header ---*/
+  header {
+    width: 90%;
+  }
+  .logo-container img {
+    max-width: 100%;
+  }
+
+  .score-container {
+    width: 35%;
+  }
+  .score-container h1 {
+    font-size: 12px;
+  }
+  .score {
+    font-size: 2rem;
+  }
+
+  /*---- Triangle and content picking ----*/
+  .triangle,
+  .content-player-pick {
+    background-size: 68%;
+  }
+
+  .triangle .button-circle-1,
+  .content-picking :not(.triangle) :not(.row) .button-circle-1 {
+    width: 120px;
+    height: 120px;
+  }
+
+  .content-player-pick .col {
+    height: 210px;
+  }
+
+  .triangle .row .paper::after,
+  .content-picking .paper::after {
+    width: 35px;
+    height: 41px;
+  }
+
+  .triangle .rock::after,
+  .content-picking .rock::after {
+    width: 35px;
+    height: 35px;
+  }
+
+  .triangle .row .scissor::after,
+  .content-picking .scissor::after {
+    width: 35px;
+    height: 38.5px;
+  }
+
+  /*---- Bot before pick -----*/
+  .bot-before-pick {
+    width: 105.4px;
+    height: 105px;
+  }
+}
